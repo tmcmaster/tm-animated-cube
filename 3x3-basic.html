@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Example 3x3 Cube</title>
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>-->
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r74/three.min.js"></script>-->
+		<!--<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/renderers/CanvasRenderer.js"></script>-->
+		<!--<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/renderers/Projector.js"></script>-->
+		<!--<script src="../lib/jquery.cube.threejs.js"></script>-->
+		<!--<script>-->
+			<!--$(function(){-->
+				<!--$(".cube").cube();-->
+			<!--});-->
+		<!--</script>-->
+
+		<script type="module">
+            import './node_modules/jquery/dist/jquery.js';
+            import * as THREE from './node_modules/three/build/three.module.js';
+            import './lib/jquery.cube.threejs.js';
+			window.THREE = THREE;
+			$(".cube").cube();
+            //$(".cube").move("(U R U' R')");
+		</script>
+
+		<style>
+			.cube {
+				width: 400px;
+				height: 400px;
+				border: solid lightgrey 1px;
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="cube"s></div>
+	<!--<div class="cube" data-moves="(U R U' R') (U R U' R') (U R U' R') (U R U' R') (U R U' R') (U R U' R')"></div>-->
+	</body>
+</html>

@@ -3,7 +3,9 @@
   "description": "Animated twisty puzzle cube Polymer web component.",
   "main": "tm-animated-cube.js",
   "dependencies": {
-    "@polymer/polymer": "^3.0.0"
+    "@polymer/polymer": "^3.0.0",
+    "jquery": "^3.3.1",
+    "three": "^0.97.0"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
