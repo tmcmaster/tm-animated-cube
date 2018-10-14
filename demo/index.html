@@ -19,15 +19,37 @@
       <style is="custom-style" include="demo-pages-shared-styles">
       </style>
     </custom-style>
+    <style>
+      tm-animated-cube {
+        width: 80vw;
+        height: 80vw;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+          const cube = document.getElementById("cube");
+
+          // setTimeout(function() {
+          //     cube.move("U R U' R'");
+          // }, 5000);
+          //
+          // setTimeout(function() {
+          //     cube.move("R U R' U'");
+          // }, 10000);
+      }
+    </script>
   </head>
   <body>
-    <div class="vertical-section-container centered">
-      <h3>Basic tm-animated-cube demo</h3>
-      <demo-snippet>
-        <template>
-          <tm-animated-cube></tm-animated-cube>
-        </template>
-      </demo-snippet>
-    </div>
+    <!--<div class="vertical-section-container centered">-->
+      <!--<h3>Basic tm-animated-cube demo</h3>-->
+      <!--<demo-snippet>-->
+        <!--<template>-->
+          <!--<tm-animated-cube id="cube" scramble="R U R' U'"></tm-animated-cube>-->
+        <!--</template>-->
+      <!--</demo-snippet>-->
+     <!---->
+    <!--</div>-->
+
+    <tm-animated-cube id="cube" scramble="R U R' U'" moves="R D"></tm-animated-cube>
   </body>
 </html>
