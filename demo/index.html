@@ -29,10 +29,10 @@
       window.onload = function() {
           const cube = document.getElementById("cube");
 
-          // setTimeout(function() {
-          //     cube.move("U R U' R'");
-          // }, 5000);
-          //
+          setTimeout(function() {
+              cube.move("U R U' R'");
+          }, 10000);
+
           // setTimeout(function() {
           //     cube.move("R U R' U'");
           // }, 10000);
@@ -49,6 +49,8 @@
       <!--</demo-snippet>-->
      <!---->
     <!--</div>-->
+
+    <!--<tm-animated-cube id="cube"></tm-animated-cube>-->
 
     <tm-animated-cube id="cube" scramble="R U R' U'" moves="R D"></tm-animated-cube>
   </body>

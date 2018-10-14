@@ -45,19 +45,13 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
                 type: String
             },
             moves: {
-                type: String,
-                value: '',
-                observer: '_movesChanged'
+                type: String
             }
         };
     }
 
-    _movesChanged(moves) {
-        console.log('Moves: ', moves);
-    }
-
     move(moves) {
-        this.moves += ' ' + moves;
+        this.state += ' ' + moves;
         this.cube.move(moves);
     }
 
@@ -102,7 +96,7 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
             const div = document.createElement('div');
             this.shadowRoot.querySelector('#container').appendChild(div);
             this.cube = $(div).cube({
-                scramble: this.moves
+                scramble: this.state
             });
             this.resizing = false;
         }
@@ -112,10 +106,13 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
         super.ready();
         this.resizing = false;
         this.resizeCounter=0;
-        this.moves = this.scramble;
+        this.state = this.scramble;
         this.cube = $(this.$.cube).cube({
             scramble: this.scramble
         });
+        const self = this;
+        setTimeout(() => this.cube.move(this.moves), 1000);
+
     }
 }
 
