@@ -31,11 +31,15 @@
 
           setTimeout(function() {
               cube.move("U R U' R'");
+          }, 5000);
+
+          setTimeout(function() {
+              cube.reset();
           }, 10000);
 
-          // setTimeout(function() {
-          //     cube.move("R U R' U'");
-          // }, 10000);
+          setTimeout(function() {
+              cube.update("M", "D");
+          }, 15000);
       }
     </script>
   </head>
@@ -52,6 +56,6 @@
 
     <!--<tm-animated-cube id="cube"></tm-animated-cube>-->
 
-    <tm-animated-cube id="cube" scramble="R U R' U'" moves="R D"></tm-animated-cube>
+    <tm-animated-cube id="cube" scramble="D" moves="U"></tm-animated-cube>
   </body>
 </html>
