@@ -12,5 +12,29 @@
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
     "@webcomponents/webcomponentsjs": "^2.0.0",
     "wct-browser-legacy": "^1.0.0"
-  }
+  },
+  "version": "1.0.0",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmcmaster/tm-animated-cube.git"
+  },
+  "keywords": [
+    "polymer",
+    "cube",
+    "web",
+    "component"
+  ],
+  "author": "Tim McMaster",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmcmaster/tm-animated-cube/issues"
+  },
+  "homepage": "https://github.com/tmcmaster/tm-animated-cube#readme"
 }
