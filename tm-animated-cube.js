@@ -69,9 +69,12 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
     }
 
     onIronResize() {
-        console.log('tm-aspect-div has resized:');
+        console.log('tm-animated-cube has resized:');
 
         const self = this;
+        if (self.resizeCounter < 1) {
+            self._rebuild();
+        }
         self.resizeCounter++;
         setTimeout(function () {
             self.resizeCounter--;
