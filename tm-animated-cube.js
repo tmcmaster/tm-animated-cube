@@ -51,10 +51,17 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
     }
 
     update(scramble, moves) {
-        this.set('scramble', (scramble ? scramble : ""));
-        this.set('moves', (moves ? moves : ""));
-        this.state = '';
+        this.scramble = scramble;
+        this.moves = moves;
+        this.state = this.scramble;
         this._rebuild();
+        const self = this;
+
+        if (this.moves !== undefined && this.moves !== "") {
+            setTimeout(function() {
+                self.move(self.moves);
+            }, 1000);
+        }
     }
 
     reset() {
@@ -63,8 +70,10 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
     }
 
     move(moves) {
-        this.state += ' ' + moves;
-        this.cube.move(moves);
+        if (moves != undefined) {
+            this.state += ' ' + moves;
+            this.cube.move(moves);
+        }
     }
 
     onIronResizeHold() {

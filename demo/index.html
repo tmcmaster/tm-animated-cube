@@ -29,17 +29,25 @@
       window.onload = function() {
           const cube = document.getElementById("cube");
 
-          setTimeout(function() {
-              cube.move("U R U' R'");
-          }, 5000);
-
-          setTimeout(function() {
-              cube.reset();
-          }, 10000);
+          cube.move("U R U' R'");
 
           setTimeout(function() {
               cube.update("M", "D");
-          }, 15000);
+          }, 4000);
+
+          // setTimeout(function() {
+          //     cube.move("U R U' R'");
+          // }, 5000);
+          //
+          // setTimeout(function() {
+          //     cube.reset();
+          // }, 10000);
+          //
+          // setTimeout(function() {
+          //     cube.update("M", "D");
+          // }, 15000);
+
+
       }
     </script>
   </head>
