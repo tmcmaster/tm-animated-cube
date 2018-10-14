@@ -51,16 +51,15 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
     }
 
     update(scramble, moves) {
-        this.set('scramble', scramble);
-        this.set('moves', moves);
-        this.reset();
+        this.set('scramble', (scramble ? scramble : "");
+        this.set('moves', (moves ? moves : "");
+        this.state = '';
+        this._rebuild();)
     }
 
     reset() {
         this.cube.reset();
         this.state = '';
-        this.move(this.scramble);
-        setTimeout(() => this.move(this.moves), 1000);
     }
 
     move(moves) {
