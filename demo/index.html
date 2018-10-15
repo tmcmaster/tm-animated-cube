@@ -29,11 +29,11 @@
       window.onload = function() {
           const cube = document.getElementById("cube");
 
-          cube.move("U R U' R'");
-
-          setTimeout(function() {
-              cube.update("M", "D");
-          }, 8000);
+          //cube.move("y y y y");
+          //
+          // setTimeout(function() {
+          //     cube.update("M", "D");
+          // }, 8000);
 
           // setTimeout(function() {
           //     cube.move("U R U' R'");
@@ -64,6 +64,6 @@
 
     <!--<tm-animated-cube id="cube"></tm-animated-cube>-->
 
-    <tm-animated-cube id="cube" scramble="D" moves="U"></tm-animated-cube>
+    <tm-animated-cube id="cube" scramble="S S E E M M" moves="M M E E S S" delay="3000" duration="1000"></tm-animated-cube>
   </body>
 </html>

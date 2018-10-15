@@ -8,6 +8,25 @@ import './lib/jquery.cube.threejs.js';
 
 window.THREE = THREE;
 
+const GREEN = 0x006400;
+const BLUE = 0x0000CD;
+const YELLOW = 0xffff00;
+const WHITE = 0xffffff;
+const RED = 0xff0000;
+const ORANGE = 0xFFA500;
+const GREY = 0x111111;
+
+const COLOR_MAP = {
+    red: RED,
+    orange: ORANGE,
+    blue: BLUE,
+    green: GREEN,
+    white: WHITE,
+    yellow: YELLOW,
+    grey: GREY,
+    gray: GREY
+};
+
 /**
  * `tm-animated-cube`
  * Animated twisty puzzle cube Polymer web component.
@@ -17,6 +36,7 @@ window.THREE = THREE;
  * @demo demo/index.html
  */
 class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElement) {
+
     static get template() {
         return html`
       <style>
@@ -54,11 +74,26 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
             delay: {
                 type: Number,
                 valie: 3000
+            },
+            colors: {
+                type: String,
+                observer: '_colorsChanged'
+            },
+            whiteTop: {
+                type: Boolean,
+                value: false
             }
         };
     }
 
-    update(scramble, moves) {
+    _colorsChanged(colors) {
+        console.log('New Colors:', colors);
+        const newColors = colors.split(',').map(c => COLOR_MAP[c]);
+        this.set('colorArray', newColors);
+        console.log('New Colors:', newColors);
+    }
+
+    update(scramble, moves) {this.move()
         this.scramble = scramble;
         this.moves = moves;
         this.state = this.scramble;
@@ -131,7 +166,8 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
                 scramble: this.state,
                 animation: {
                     delay: this.duration
-                }
+                },
+                color: this.colorArray
             });
             this.resizing = false;
         }
@@ -139,6 +175,14 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
 
     ready() {
         super.ready();
+        if (this.colorArray === undefined || this.colorArray.length === 0) {
+            if (this.whiteTop) {
+                this.colorArray = [BLUE,GREEN,WHITE,YELLOW,RED,ORANGE,GREY];
+            } else {
+                this.colorArray = [GREEN,BLUE,YELLOW,WHITE,RED,ORANGE,GREY];
+            }
+
+        }
         this.resizing = false;
         this.resizeCounter=0;
         this.state = this.scramble;
@@ -146,11 +190,12 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
             scramble: this.scramble,
             animation: {
                 delay: this.duration
-            }
+            },
+            color: this.colorArray
         });
-        const self = this;
-        setTimeout(() => this.move(this.moves), this.delay);
-
+        if (this.moves) {
+            setTimeout(() => this.move(this.moves), this.delay);
+        }
     }
 }
 
