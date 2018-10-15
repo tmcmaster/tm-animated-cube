@@ -47,9 +47,13 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
             moves: {
                 type: String
             },
+            duration: {
+                type: Number,
+                value: 2000
+            },
             delay: {
                 type: Number,
-                value: 1000
+                valie: 3000
             }
         };
     }
@@ -64,7 +68,7 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
         if (this.moves !== undefined && this.moves !== "") {
             setTimeout(function() {
                 self.move(self.moves);
-            }, 1000);
+            }, this.delay);
         }
     }
 
@@ -126,7 +130,7 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
             this.cube = $(div).cube({
                 scramble: this.state,
                 animation: {
-                    delay: this.delay
+                    delay: this.duration
                 }
             });
             this.resizing = false;
@@ -141,11 +145,11 @@ class TmAnimatedCube extends mixinBehaviors([IronResizableBehavior], PolymerElem
         this.cube = $(this.$.cube).cube({
             scramble: this.scramble,
             animation: {
-                delay: this.delay
+                delay: this.duration
             }
         });
         const self = this;
-        setTimeout(() => this.move(this.moves), 1000);
+        setTimeout(() => this.move(this.moves), this.delay);
 
     }
 }
